@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        // let cache = new WeakMap();
+
+        // function process(obj) {
+        //     if (!cache.has(obj)) {
+        //         let result = obj.number * obj.number;
+        //         cache.set(obj, result);
+        //     }
+        //     return cache.get(obj);
+        // }
+
+        // let obj = { "number": 2 };
+        // let result1 = process(obj);
+        // let result2 = process(obj);
+        // console.log(result1);
+        // console.log(result2);
+        // obj = null;
+        // console.log(cache.size);
+
+        // let messages = [
+        //     {text: "Hello", from: "John"},
+        //     {text: "How goes?", from: "John"},
+        //     {text: "See you soon", from: "Alice"}
+        // ];
+
+        // let readSet = new WeakSet();
+        // readSet.add(messages[0], new Date(2017, 1, 1));
+        // readSet.add(messages[1]);
+        // console.log(readSet);
+        // console.log(readSet.has(messages[0]));
+
+        // let prices = {
+        //     banana: 1,
+        //     orange: 2,
+        //     meat: 4
+        // };
+
+        // let doublePrices = Object.fromEntries(
+        //     Object.entries(prices).map(([key, value]) => [key, value * 2])
+        // )
+        // console.log(doublePrices);
+
+        // let salaries = {
+        //     "John": 100,
+        //     "Pete": 300,
+        //     "Mary": 250
+        // };
+
+        // function sumSalaries(obj) {
+        //     let valueArr = Object.values(obj);
+        //     let sum = 0;
+        //     for(let v of valueArr) {
+        //         sum += v;
+        //     }
+        //     return sum;
+        // }
+
+        // console.log(sumSalaries(salaries));
+
+        // let [name1, name2, ...rest] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+
+        // let [name = "Guest", surname = "Anonymous"] = ["Julius"];
+        // console.log( name );
+        // console.log( surname );
+
+        // let options = {
+        //     title: "Menu",
+        //     width: 100,
+        //     height: 200
+        // }
+        // let {width: w, height: h, title} = options;
+        // console.log(title);
+        // console.log(h);
+        // console.log(w);
+
+        // let options = {
+        //     title: "My Menu",
+        //     items: ["Item1", "Item2"]
+        // };
+
+        // function showMenu({title = "Untitled", width = 200, height = 100, items = []}) {
+        //     console.log(`${title} ${width} ${height}`);
+        //     console.log(items);
+        // }
+        // showMenu(options);
+
+//         function showMenu({ title = "Menu", , height = 200 } = {}) {
+//   alert( `${title} ${width} ${height}` );
+// }
+
+// showMenu(); // Menu 100 200
+
+        let user = {
+            name: "John",
+            years: 30
+        };
+
+        let {name, years, isAdmin = false} = user;
+        console.log(name);
+        console.log(years);
+        console.log(isAdmin);
+    </script>
+</body>
+</html>

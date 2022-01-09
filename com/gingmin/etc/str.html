@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+<body>
+    <h1 id="id1"></h1>
+    <table>
+        <thead>
+            <tr>
+                <th style="border: 1px solid black;">A</th>
+                <th style="border: 1px solid black;">B</th>
+                <th style="border: 1px solid black;">C</th>
+                <th style="border: 1px solid black;">D</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="border: 1px solid black;">apple</td>
+                <td style="border: 1px solid rgb(0, 0, 0);">Bear</td>
+                <td style="border: 1px solid black;">Chocolate</td>
+                <td style="border: 1px solid black;">Dog</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        'use strict';
+        /*
+        
+        */
+        
+        function ucFirst(str) {
+            if(!str) return str;
+            return str[0].toUpperCase() + str.slice(1);
+        }
+        //console.log(ucFirst("john"));
+
+        function checkSpam(str) {
+            if(!str) return str;
+            let temp = str.toLowerCase();
+            return temp.includes('viagra') || temp.includes('xxx')
+        }
+        // console.log(checkSpam('buy ViAgRA now'));
+        // console.log(checkSpam('free xxxxx'));
+        // console.log(checkSpam('innocent rabbit'));
+        // console.log(checkSpam(undefined));
+       //dom.innerHTML = h;
+       function truncate(str, len) {
+           let answer = "";
+           if(str.length > len) {
+                answer = str.slice(0, len-1) + "…";
+           } else {
+                answer = str;
+           }
+           console.log(answer.length);
+           return answer;
+       }
+
+       //console.log(truncate("What I'd like to tell on this topic is:", 20));
+       //console.log(truncate("Hi everyone!", 20));
+
+       function extractCurrencyValue(num) {
+            
+       }
+       //console.log(extractCurrencyValue('$120'));
+
+       function sumInput() {
+            let isConfirm = true;
+            let arr = [];
+            let answer = 0;
+            while(isConfirm) {
+                let no = prompt("숫자를 입력하세요.", 0);
+                console.log(no);
+                if(isFinite(no)) {
+                    arr.push(no);
+                } else {
+                    isConfirm = false;
+                }
+            }
+            for(let i of arr) {
+                answer += +i;
+            }
+            return answer;
+       }
+
+      // console.log(sumInput());
+
+      function getMaxSubSum(arr) {
+          let maxSum = 0;
+          let partialSum = 0;
+
+          for(let item of arr) {
+              partialSum += item;
+              maxSum = Math.max(maxSum, partialSum);
+              if(partialSum < 0) partialSum = 0;
+          }
+          return maxSum;
+      }
+//         console.log(getMaxSubSum([-1, 2, 3, -9]) == 5);
+//         console.log(getMaxSubSum([2, -1, 2, 3, -9]) == 6);
+//         console.log(getMaxSubSum([-1, 2, 3, -9, 11]) == 11);
+//         console.log(getMaxSubSum([-2, -1, 1, 2]) == 3);
+//         console.log(getMaxSubSum([100, -9, 2, -3, 5]) == 100);
+//         console.log(getMaxSubSum([1, 2, 3]) == 6  );
+
+//         ["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
+//   alert(`${item} is at index ${index} in ${array}`);
+// });
+
+    let arr = [ 1, 2, 15 ];
+    arr.sort( (a, b) => a - b );
+    //alert(arr);
+
+    // function camelize(str) {
+    //     let temp = str.split("-");
+    //     for(let i = 1; i < temp.length; i++) {
+    //         temp[i] = temp[i][0].toUpperCase() + temp[i].slice(1);
+    //     }
+    //     return temp.join("");
+    // }
+   // console.log(camelize("background-color"));
+  // console.log(camelize("list-style-image"));
+  //  console.log(camelize("-webkit-transition"));
+    
+    function camelize2(str) {
+        return str
+            .split("-")
+            .map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))
+            .join("");
+    }
+
+    function camelize(str) {
+  return str
+    .split('-') // splits 'my-long-word' into array ['my', 'long', 'word']
+    .map(
+      // capitalizes first letters of all array items except the first one
+      // converts ['my', 'long', 'word'] into ['my', 'Long', 'Word']
+      (word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1)
+    )
+    .join(''); // joins ['my', 'Long', 'Word'] into 'myLongWord'
+}
+    
+    // console.log(camelize2("background-color"));
+    // console.log(camelize2("list-style-image"));
+    // console.log(camelize2("-webkit-transition"));
+
+    function filterRange(arr, min, max) {
+        return arr.filter(item => item >= min && item <= max);
+    }
+    let array = [5, 3, 8, 1];
+    //console.log(filterRange(array, 1, 4));
+
+    function filterRangeInPlace(arr, min, max) {
+        arr.forEach((item, index) => {
+            if(item < min || item > max) {
+                arr.splice(index, 1);
+            }
+        });
+    }
+    filterRangeInPlace(array, 1, 4);
+    //console.log(array);
+
+    let narr = [5, 2, 1, -10, 8];
+    narr.sort((a, b) => b - a);
+    //console.log(narr);
+
+    function cpSorted(arr) {
+        return arr.slice().sort();
+    }
+    let s = cpSorted(narr);
+    console.log(s);
+    </script>
+</body>
+</html>

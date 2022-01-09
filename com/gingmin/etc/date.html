@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        // function diffSubtract(date1, date2) {
+        //     return date2 - date1;
+        // }
+
+        // function diffGetTime(date1, date2) {
+        //     return date2.getTime() - date1.getTime();
+        // }
+
+        // function bench(f) {
+        //     let date1 = new Date(0);
+        //     let date2 = new Date();
+
+        //     let start = Date.now();
+        //     for(let i = 0; i < 100000; i++) f(date1, date2);
+
+        //     return Date.now() - start;
+        // }
+
+        //let time1 = 0;
+        //let time2 = 0;
+
+        // 함수 bench를 각 함수(diffSubtract, diffGetTime)별로 10번씩 돌립니다.
+        // for (let i = 0; i < 10; i++) {
+        //     time1 += bench(diffSubtract);
+        //     time2 += bench(diffGetTime);
+        // }
+
+        // console.log( 'diffSubtract에 소모된 시간: ' + time1 );
+        // console.log( 'diffGetTime에 소모된 시간: ' + time2 );
+
+        //let date = new Date( Date.parse('2022-01-06T11:50:00.410Z') );
+
+        // let q1 = new Date(2012, 0, 3);
+        // function getWeekDay(date) {
+        //     switch(date.getUTCDay()) {
+        //         case 0 : return "MO"; break;
+        //         case 1 : return "TU"; break;
+        //         case 2 : return "WE"; break;
+        //         case 3 : return "TH"; break;
+        //         case 4 : return "FR"; break;
+        //         case 5 : return "SA"; break;
+        //         case 6 : return "SU"; break;
+        //     }
+        // }
+        // //console.log(getWeekDay(q1));
+
+        // let q2 = new Date(2019, 11, 5);
+        // function getLocalDay(date) {
+        //     let day = date.getDay();
+
+        //     if (day == 0) { // 일요일(숫자 0)은 유럽에선 7입니다.
+        //         day = 7;    
+        //     }
+
+        //     return day;
+        // }
+        // let date3 = new Date(2022, 0, 1);
+//         document.write('기준일자 : ' + date3 + '<br>');
+
+//         date3.setFullYear(date3.getFullYear() + 1);
+//         document.write('1년 후 : ' + date3 + '<br>');
+
+//         date3 = new Date(2022, 0, 1);
+//         date3.setFullYear(date3.getFullYear() - 1);
+//         document.write('1년 전 : ' + date3 + '<br>');
+// //===============================================================
+//         let date = new Date(2011, 0, 2, 0, 0, 0, 0); // 2015년 1월 2일
+//         console.log("dateeeeee : " + date);
+
+//         function getDateAgo(date, n) {
+//             let tDate = new Date(date);
+            
+//             tDate.setDate(date.getDate() - n);   
+//             return tDate.getDate();
+//         }
+//         console.log( getDateAgo(date, 1) ); // 1, (2015년 1월 1일)
+//         console.log( getDateAgo(date, 2) ); // 31, (2014년 12월 31일)
+//         console.log( getDateAgo(date, 365) ); // 2, (2014년 1월 2일)
+
+//         let student = {
+//             name: 'John',
+//             age: 30,
+//             isAdmin: false,
+//             courses: ['html', 'css', 'js'],
+//             wife: null
+//         };
+
+//         let json = JSON.stringify(student);
+        // console.log(typeof json);
+        // console.log(json);
+
+        function getLastDayOfMonth(year, month) {
+            let date = new Date(year, month + 1, 0);
+            return date.getDate();   
+        }
+
+        //console.log(getLastDayOfMonth(2022, 1));
+
+        function getSecondsToday() {
+            let now = new Date();
+            console.log(now.getHours() + " " + now.getMinutes() + " " + now.getSeconds());
+            let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            console.log(Math.round((now - today) / 1000));
+        }
+        function getSecondsToday2() {
+  let d = new Date();
+  return d.getHours() * 3600 + d.getMinutes() * 60 + d.getSeconds();
+}
+        getSecondsToday();
+        console.log(getSecondsToday2());
+    </script>
+</body>
+</html>
