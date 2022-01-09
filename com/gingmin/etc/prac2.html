@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        function Calculator() {
+            this.methods = {
+                "-": (a, b) => a - b,
+                "+": (a, b) => a + b
+            };
+            this.calculate = function(str) {
+                let split = str.split(" ");
+                let a = +split[0];
+                let op = split[1];
+                let b = +split[2];
+
+                if(!this.methods[op] || isNaN(a) || isNaN(b)) {
+                    return NaN;
+                }
+
+                return this.methods[op](a, b);
+            };
+
+            this.addMethod = function(name, func) {
+                this.methods[name] = func;
+            };
+        }
+
+//         let powerCalc = new Calculator;
+// powerCalc.addMethod("*", (a, b) => a * b);
+// powerCalc.addMethod("/", (a, b) => a / b);
+// powerCalc.addMethod("**", (a, b) => a ** b);
+
+// let result = powerCalc.calculate("2 ** 3");
+//alert( result ); // 8
+// let john = { name: "John", surname: "Smith", id: 1 };
+// let pete = { name: "Pete", surname: "Hunt", id: 2 };
+// let mary = { name: "Mary", surname: "Key", id: 3 };
+
+// let users = [ john, pete, mary ];
+// let usersMapped = users.map(item => ({fullName: `${item.name} ${item.surname}`, id: item.id}));
+//console.log(usersMapped);
+
+// let john = { name: "John", age: 25 };
+// let pete = { name: "Pete", age: 30 };
+// let mary = { name: "Mary", age: 28 };
+
+// let arr = [ pete, john, mary ];
+
+// function sortByAge(arr) {
+//     return arr.sort((a, b) => a.age - b.age);
+// }
+
+// sortByAge(arr);
+
+// // now: [john, mary, pete]
+// function shuffle(array) {
+//     for (let i = array.length - 1; i > 0; i--) {
+//         let tm = Math.random() * (i + 1);
+//         let j = Math.floor(tm);
+//         let t = array[i];
+//         array[i] = array[j];
+//         array[j] = t;
+//     }
+// }
+// let count = {
+//   '123': 0,
+//   '132': 0,
+//   '213': 0,
+//   '231': 0,
+//   '321': 0,
+//   '312': 0
+// };
+
+// for (let i = 0; i < 1000000; i++) {
+//   let array = [1, 2, 3];
+//   shuffle(array);
+//   count[array.join('')]++;
+// }
+
+// // 만들 수 있는 모든 순열의 생성 빈도를 세서 출력해줍니다.
+// for (let key in count) {
+//   console.log(`${key}: ${count[key]}`);
+// }
+
+// let john = { name: "John", age: 25 };
+// let pete = { name: "Pete", age: 30 };
+// let mary = { name: "Mary", age: 29 };
+
+// let arr = [ john, pete, mary ];
+
+// function getAverageAge(arr) {
+//     // let avg = 0;
+//     // arr.forEach((item) => {
+//     //     avg += item.age;
+//     // });
+//     // return avg / arr.length;
+//     return arr.reduce((prev, item) => prev + item.age, 0) / arr.length;
+// }
+
+// console.log( getAverageAge(arr) );
+
+// let range = {
+//     from: 1,
+//     to: 5
+// }
+
+// range[Symbol.iterator] = function() {
+//     return {
+//         current: this.from,
+//         last: this.to,
+//         next() {
+//             if(this.current <= this.last) {
+//                 return { done: false, value: this.current++ };
+//             } else { done: true };
+//         }
+//     };
+// };
+
+let range = {
+    from: 1,
+    to: 5,
+
+    [Symbol.iterator]() {
+        this.current = this.from;
+        return this;
+    },
+    next() {
+        if (this.current <= this.to) {
+            return { done: false, value: this.current++ };
+        } else {
+            return { done: true };
+        }
+    }
+};
+
+// for (let num of range) {
+//     console.log(num);
+// }
+
+// let str = "HELLO";
+// let iterator = str[Symbol.iterator]();
+// while(true) {
+//     let result = iterator.next();
+//     if (result.done) break;
+//     console.log(result.value);
+// }
+
+let arrayLike = {
+    0: "Hello",
+    1: "World",
+    length: 2
+}
+
+let arr = Array.from(range, num => num * num);
+//console.log(arr);
+
+// let map = new Map();
+// map.set('1', 'str1');
+// map.set(1, 'num1');
+// map.set(true, 'bool1');
+// console.log(map.get(1));
+// console.log(map.get('1'));
+// console.log(map.size);
+
+// let recipeMap = new Map([
+//    ['cucumber', 500],
+//    ['tomatoes', 350],
+//    ['onion', 50] 
+// ]);
+// for(let vegetable of recipeMap.keys()) {
+//     console.log(vegetable);
+// }
+// for(let entry of recipeMap) {
+//     console.log(entry);
+// }
+
+let obj = {
+    name: "John",
+    age: 30
+}
+let map = new Map(Object.entries(obj));
+//console.log(map.get('name'));
+let set = new Set();
+set.add("john");
+for(let user of set) {
+    console.log(user);
+}
+</script>
+</body>
+</html>
