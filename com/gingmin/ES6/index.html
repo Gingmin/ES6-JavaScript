@@ -3,8 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-<body>
+    <style>
+        .message-ball {
+            font-size: 20px;
+            line-height: 200px;
+            text-align: center;
+        }
+        .circle {
+            transition-property: width, height, margin-left, margin-top;
+            transition-duration: 2s;
+            position: fixed;
+            transform: translateX(-50%) translateY(-50%);
+            background-color: red;
+            border-radius: 50%;
+        }
+    </style>
 </head>
+<body>
     <h1 align="center">JavaScript ES6</h1>
     <!--<script src="../js/test.js"></script>-->
     <!--<script src="../js/json.js"></script>-->
@@ -27,6 +42,9 @@
 <!--        p.parseTableData();-->
 <!--    </script>-->
 <!--    <script src="../js/error.js"></script>-->
-    <script src="../js/cuserror.js"></script>
+<!--    <script src="../js/cuserror.js"></script>-->
+<!--    <script src="../js2/callback.js"></script>-->
+<!--    <button onclick="go()">여기를 클릭해 주세요.</button>-->
+    <script src="../js2/promise.js"></script>
 </body>
 </html>
