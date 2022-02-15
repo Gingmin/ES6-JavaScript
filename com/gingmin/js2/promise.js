@@ -92,19 +92,40 @@
 // });
 
 // user.json에 요청을 보냅니다.
-fetch('/article/promise-chaining/user.json')
-    // 응답받은 내용을 json으로 불러옵니다.
-    .then(response => response.json())
-    // GitHub에 요청을 보냅니다.
-    .then(user => fetch(`https://api.github.com/users/${user.name}`))
-    // 응답받은 내용을 json 형태로 불러옵니다.
-    .then(response => response.json())
-    // 3초간 아바타 이미지(githubUser.avatar_url)를 보여줍니다.
-    .then(githubUser => {
-        let img = document.createElement('img');
-        img.src = githubUser.avatar_url;
-        img.className = "promise-avatar-example";
-        document.body.append(img);
+// fetch('/article/promise-chaining/user.json')
+//     // 응답받은 내용을 json으로 불러옵니다.
+//     .then(response => response.json())
+//     // GitHub에 요청을 보냅니다.
+//     .then(user => fetch(`https://api.github.com/users/${user.name}`))
+//     // 응답받은 내용을 json 형태로 불러옵니다.
+//     .then(response => response.json())
+//     // 3초간 아바타 이미지(githubUser.avatar_url)를 보여줍니다.
+//     .then(githubUser => {
+//         let img = document.createElement('img');
+//         img.src = githubUser.avatar_url;
+//         img.className = "promise-avatar-example";
+//         document.body.append(img);
+//
+//         setTimeout(() => img.remove(), 3000); // (*)
+//     });
 
-        setTimeout(() => img.remove(), 3000); // (*)
-    });
+// error handleing
+
+// Promise API
+// let promise = Promise.all([
+//     new Promise(resolve => setTimeout(() => resolve(1), 3000)),
+//     new Promise(resolve => setTimeout(() => resolve(2), 2000)),
+//     new Promise(resolve => setTimeout(() => resolve(3), 1000))
+// ]).then(alert);
+// promise;
+
+let urls = [
+        'https://api.github.com/users/iliakan',
+        'https://api.github.com/users/remy',
+        'https://api.github.com/users/jeresig'
+];
+let requests = urls.map(url => fetch(url));
+Promise.all(requests)
+        .then(responses => responses.forEach(
+            response => alert(`${response.url}: ${response.status}`)
+        ));
