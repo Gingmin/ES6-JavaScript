@@ -34,4 +34,5 @@ let range = {
         };
     }
 };
+
 alert([...range]);
