@@ -80,7 +80,8 @@ function* generateSequence() {
 // let generator = gen();
 // let question = generator.next().value;
 // generator.throw(new Error("데이터베이스에서 답을 찾지 못했습니다.")); // (2)
-
+// ㅜㅜ
+//
 
 
 
